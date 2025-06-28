@@ -88,7 +88,7 @@ def draw_ui(frame):
         cv2.line(frame,(xs,80),(xs+40,80),col,5)
         if i<len(input_pin):
             cv2.putText(frame,input_pin[i],(xs+5,70),cv2.FONT_HERSHEY_SIMPLEX,1,col,2)
-    # Tombol virtual
+    # Virtual Button
     for k,(x,y) in buttons.items():
         cv2.rectangle(frame,(x,y),(x+60,y+60),(50,50,50),-1)
         cv2.putText(frame,k,(x+10,y+40),cv2.FONT_HERSHEY_SIMPLEX,1.2,(255,255,255),2)
