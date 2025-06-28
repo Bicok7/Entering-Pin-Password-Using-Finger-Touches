@@ -4,7 +4,7 @@
 const char* ssid     = "DESKTOP-REQJG4M 2894";
 const char* password = "y9993:G6";
 
-// LED pin sesuai urutan: thumb, index, middle, ring, pinky
+// LED Pin Setup
 const int greenLedPin = 14;
 const int pins[] = {27, 26, 25, 33, 32};
 const char* names[] = {"thumb", "index", "middle", "ring", "pinky"};
@@ -35,7 +35,7 @@ void setup() {
   }
   Serial.println("\nConnected! IP: " + WiFi.localIP().toString());  
 
-  // Buat route untuk ON/OFF tiap LED
+  // Making Route for every On/Off LEDs
   for (int i = 0; i < 5; i++) {
     server.on(urls_on[i], HTTP_GET, [i](AsyncWebServerRequest *req) {
       digitalWrite(pins[i], HIGH);
@@ -55,3 +55,4 @@ void setup() {
 void loop() {
   // Nothing here
 }
+
