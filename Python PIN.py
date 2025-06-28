@@ -1,12 +1,12 @@
 import cv2, numpy as np, mediapipe as mp, subprocess, requests, time
 import webbrowser
 
-# PIN yang benar
+# The Correct Pin Password
 CORRECT_PIN = "12345"
 input_pin = ""
 pin_state = [0]*5
 
-# Tombol virtual
+# Virtual Buttons
 buttons = {
     '1':(50,150),'2':(130,150),'3':(210,150),
     '4':(50,230),'5':(130,230),'6':(210,230),
@@ -78,7 +78,7 @@ def handle_click(key):
 
 
 def draw_ui(frame):
-    # PIN underline & angka
+    # PIN underline & number
     for i in range(5):
         col=(200,200,200)
         if pin_state[i]==1: col=(0,0,255)
@@ -94,9 +94,9 @@ def draw_ui(frame):
         cv2.putText(frame,k,(x+10,y+40),cv2.FONT_HERSHEY_SIMPLEX,1.2,(255,255,255),2)
 
 cap = cv2.VideoCapture("http://192.168.1.6:4747/video")
-if not cap.isOpened(): raise Exception("Gagal buka kamera!")
+if not cap.isOpened(): raise Exception("Failed To Open Camera")
 
-print("▶ Gesture PIN aktif")
+print("▶ Gesture PIN active")
 while True:
     ret,frame = cap.read()
     if not ret: break
